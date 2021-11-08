@@ -17,7 +17,7 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  //const [won, setWon] = useState(false);
+  const [won, setWon] = useState(true);
 
   //shuffle cards
   const shuffleCards = ()=>{
@@ -30,7 +30,7 @@ function App() {
       setChoiceOne(null);
       setChoiceTwo(null);
       setCards(shuffledCards);
-      //setWon(false);
+      setWon(false);
       setTurns(0);
   }
 
@@ -62,8 +62,11 @@ function App() {
         })
       })}
       setTimeout(() => resetTurn(), 1000);
-      // let isWon = cards.some((card) => card.matched === false);
-      // setWon(!isWon);
+      let isWon = cards.filter((card) => card.matched === false);
+      if(isWon.length === 2){
+        setWon(true);
+      }
+      console.log(won)
     }
   }, [choiceOne, choiceTwo])
 
@@ -76,7 +79,7 @@ function App() {
     <div className="App">
       <h1>Magic Match</h1>
       <button onClick={shuffleCards}>New Game</button>
-      <div className='card-grid'>
+      {!won ? <><div className='card-grid'>
         {cards.map((card) => <SingleCard
           card={card}
           key={card.id}
@@ -84,9 +87,10 @@ function App() {
           flipped={card === choiceOne || card === choiceTwo || card.matched}
           disabled={disabled} />
         )}
-      </div><p>Turns: {turns}</p>
+      </div><p>Turns: {turns}</p></> : <h3 className="won-txt">You won the game in {turns} turns.</h3>}
     </div>
   );
 }
+
 
 export default App;
