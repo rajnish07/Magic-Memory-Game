@@ -30,7 +30,7 @@ function App() {
       setChoiceOne(null);
       setChoiceTwo(null);
       setCards(shuffledCards);
-      setWon(false);
+      //setWon(false);
       setTurns(0);
   }
 
