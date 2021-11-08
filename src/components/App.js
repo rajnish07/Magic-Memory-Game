@@ -17,7 +17,7 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  const [won, setWon] = useState(false);
+  //const [won, setWon] = useState(false);
 
   //shuffle cards
   const shuffleCards = ()=>{
