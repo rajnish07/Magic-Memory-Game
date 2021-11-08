@@ -27,3 +27,7 @@ button:hover{
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+.won-txt{
+  margin-top: 60%;
+}
