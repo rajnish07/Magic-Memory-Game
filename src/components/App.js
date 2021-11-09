@@ -62,14 +62,18 @@ function App() {
         })
       })}
       setTimeout(() => resetTurn(), 1000);
-      let isWon = cards.filter((card) => card.matched === false);
-      if(isWon.length === 2){
-        setWon(true);
-      }
-      console.log(won)
+      checkWon();
     }
   }, [choiceOne, choiceTwo])
 
+  //Check if game is won
+  const checkWon = () => {
+    let isWon = cards.filter((card) => card.matched === false);
+      if(isWon.length === 2){
+        setWon(true);
+      }
+  }
+  
   //start the Game
   useEffect(() => {
     shuffleCards();
