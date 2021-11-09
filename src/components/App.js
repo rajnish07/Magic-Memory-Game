@@ -62,12 +62,12 @@ function App() {
         })
       })}
       setTimeout(() => {
-        checkWon()
         resetTurn()
+        checkWon()
       }, 1000);
       ;
     }
-  }, [choiceOne, choiceTwo])
+  }, [choiceOne, choiceTwo, checkWon])
 
   //Check if game is won
   const checkWon = () => {
