@@ -61,8 +61,11 @@ function App() {
           }
         })
       })}
-      setTimeout(() => resetTurn(), 1000);
-      checkWon();
+      setTimeout(() => {
+        checkWon()
+        resetTurn()
+      }, 1000);
+      ;
     }
   }, [choiceOne, choiceTwo])
 
