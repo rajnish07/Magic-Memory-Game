@@ -47,6 +47,14 @@ function App() {
     setDisabled(false)
   }
 
+   //Check if game is won
+  const checkWon = () => {
+    let isWon = cards.filter((card) => card.matched === false);
+      if(isWon.length === 2){
+        setWon(true);
+      }
+  }
+  
   //compare choices
   useEffect(() => {
     if(choiceOne && choiceTwo){
@@ -68,14 +76,6 @@ function App() {
       ;
     }
   }, [choiceOne, choiceTwo, checkWon])
-
-  //Check if game is won
-  const checkWon = () => {
-    let isWon = cards.filter((card) => card.matched === false);
-      if(isWon.length === 2){
-        setWon(true);
-      }
-  }
   
   //start the Game
   useEffect(() => {
